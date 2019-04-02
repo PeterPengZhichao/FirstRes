@@ -1,0 +1,17 @@
+data aa(keep=fn ai ft fd x);
+input fn ai $ ft $ fd a b c d e f g;
+/*fn=flight number|ai=airline id|ft=flight type|fd=flight departure time|a=# of people in 1 person group|b=# of people in 2 person group*/
+/*c=# of people in 3 person group|d=# of people in 4 person group|e=# of people in 5 person group|f=# of people in 6 person group|g=# of people in 7 person group*/
+array aa(*) a b c d e f g;
+do j=1 to 7;
+do i=1 to aa(j);
+x=j;
+output;
+end;
+end;
+cards;
+data here
+run;
+
+proc export data=aa outfile="D:\STAT2011\abcd" dbms=xlsx replace;
+run;
